@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Control Stock - Mi Local</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-store"></i> Control de Stock</h1>
+            <p>Local de Comida - Gestión Simplificada</p>
+        </header>
+
+        <!-- SECCIÓN NUEVO PRODUCTO -->
+        <div class="card">
+            <h2><i class="fas fa-plus"></i> Agregar Producto Nuevo</h2>
+            <div class="form-group">
+                <input type="text" id="nombre" placeholder="Nombre del producto" class="input">
+                <input type="number" id="cantidad" placeholder="Cantidad inicial" class="input">
+                <select id="unidad" class="input">
+                    <option value="unidad">Unidades</option>
+                    <option value="kg">Kilogramos (kg)</option>
+                    <option value="litro">Litros (L)</option>
+                    <option value="paquete">Paquetes</option>
+                </select>
+                <select id="categoria" class="input">
+                    <option value="">Categoría</option>
+                    <option value="carnes">Carnes</option>
+                    <option value="verduras">Verduras</option>
+                    <option value="lacteos">Lácteos</option>
+                    <option value="bebidas">Bebidas</option>
+                    <option value="panaderia">Panadería</option>
+                    <option value="limpieza">Limpieza</option>
+                </select>
+                <button onclick="agregarProducto()" class="btn btn-success">
+                    <i class="fas fa-save"></i> Guardar Producto
+                </button>
+            </div>
+        </div>
+
+        <!-- SECCIÓN INVENTARIO -->
+        <div class="card">
+            <h2><i class="fas fa-boxes"></i> Inventario Actual</h2>
+            <div id="cargando">Cargando productos...</div>
+            <table id="tabla">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Unidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-productos"></tbody>
+            </table>
+        </div>
+
+        <!-- SECCIÓN MOVIMIENTOS RÁPIDOS -->
+        <div class="card">
+            <h2><i class="fas fa-exchange-alt"></i> Movimientos Rápidos</h2>
+            <div class="botones-rapidos">
+                <button onclick="mostrarEntrada()" class="btn btn-success">
+                    <i class="fas fa-arrow-down"></i> Entrada de Stock
+                </button>
+                <button onclick="mostrarSalida()" class="btn btn-danger">
+                    <i class="fas fa-arrow-up"></i> Salida de Stock
+                </button>
+            </div>
+        </div>
+
+        <!-- ALERTAS -->
+        <div class="card alerta" id="alertas" style="display: none;">
+            <h2><i class="fas fa-exclamation-triangle"></i> Productos por Reponer</h2>
+            <div id="lista-alertas"></div>
+        </div>
+    </div>
+
+    <!-- MODAL PARA MOVIMIENTOS -->
+    <div id="modal" class="modal">
+        <div class="modal-contenido">
+            <h3 id="modal-titulo"></h3>
+            <input type="number" id="cantidad-movimiento" placeholder="Cantidad" class="input">
+            <input type="text" id="motivo-movimiento" placeholder="Motivo (opcional)" class="input">
+            <div class="modal-botones">
+                <button onclick="confirmarMovimiento()" class="btn btn-success">Confirmar</button>
+                <button onclick="cerrarModal()" class="btn btn-cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
