@@ -1,6 +1,6 @@
 // ⚙️ CONFIGURACIÓN - REEMPLAZA ESTOS DATOS CON LOS TUYOS
 const SUPABASE_URL = 'https://lesstqixhpshcgzkmtuj.supabase.co';  // URL de Supabase
-const SUPABASE_KEY = 'sb_secret_hTkmQdqFnDyzGNxi21VpXA_zqpa8n4B';  // API Key de Supabase
+const SUPABASE_KEY = 'sb_publishable_ChyxkvsadjBSXKpbhFKsYA_TjxuAteA';  // API Key de Supabase
 
 // Variables globales
 let productoSeleccionado = null;
@@ -305,4 +305,5 @@ const estilosAdicionales = `
 // Agregar estilos adicionales
 const styleSheet = document.createElement('style');
 styleSheet.textContent = estilosAdicionales;
+
 document.head.appendChild(styleSheet);
